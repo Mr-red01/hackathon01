@@ -30,9 +30,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
 }) => {
   return (
     <div className="space-y-6 pb-12 animate-fadeIn">
-      {/* Greeting Header */}
+      {/* Greeting Header with elegant deep navy (#243B64) */}
       <div>
-        <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#243B64] tracking-tight">
           Good Morning, {userName}
         </h1>
       </div>

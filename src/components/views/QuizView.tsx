@@ -182,7 +182,7 @@ export const QuizView: React.FC = () => {
             </span>
             <span className="text-xs text-slate-400">• Spaced Repetition Mode</span>
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl font-bold text-[#243B64] tracking-tight">
             Interactive AI Quiz
           </h2>
           <p className="text-xs md:text-sm text-slate-500 mt-1">
@@ -201,7 +201,7 @@ export const QuizView: React.FC = () => {
       </div>
 
       {/* Module Selector Bar */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-3 shadow-xs">
+      <div className="bg-white rounded-2xl border border-[#E2E8F8] p-3 shadow-xs">
         <div className="flex items-center justify-between mb-2 px-1">
           <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
             <Layers className="w-3.5 h-3.5 text-blue-500" />
@@ -226,12 +226,12 @@ export const QuizView: React.FC = () => {
                 className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs cursor-pointer transition-all flex-shrink-0 ${
                   isActive
                     ? 'bg-blue-50 border-blue-300 text-blue-900 font-semibold shadow-xs'
-                    : 'bg-slate-50/70 border-slate-200/80 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    : 'bg-slate-50/70 border-[#E2E8F8] text-slate-600 hover:bg-slate-100 hover:text-[#243B64]'
                 }`}
               >
                 <BookOpen className={`w-3.5 h-3.5 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
                 <span className="truncate max-w-[160px]">{mod.title}</span>
-                <span className="bg-white/80 border border-slate-200 text-[10px] px-1.5 py-0.2 rounded-md text-slate-500">
+                <span className="bg-white/80 border border-[#E2E8F8] text-[10px] px-1.5 py-0.2 rounded-md text-slate-500">
                   {mod.questionsCount}Q
                 </span>
 
@@ -252,7 +252,7 @@ export const QuizView: React.FC = () => {
 
       {/* Main Quiz Area */}
       {!isFinished && currentQ ? (
-        <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/80 shadow-xs space-y-6">
+        <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#E2E8F8] shadow-xs space-y-6">
           {/* Progress Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 border-b border-slate-100 pb-4">
             <div className="flex items-center gap-2">
@@ -285,7 +285,7 @@ export const QuizView: React.FC = () => {
             <span className="text-[11px] font-bold tracking-wider uppercase text-slate-400 block mb-2">
               {currentQ.subject}
             </span>
-            <h3 className="text-base md:text-lg font-bold text-slate-900 leading-snug">
+            <h3 className="text-base md:text-lg font-bold text-[#243B64] leading-snug">
               {currentQ.question}
             </h3>
           </div>
@@ -296,7 +296,7 @@ export const QuizView: React.FC = () => {
               const isSelected = selectedOption === idx;
               const isCorrect = idx === currentQ.correctAnswer;
 
-              let btnStyle = 'border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700';
+              let btnStyle = 'border-[#E2E8F8] hover:border-slate-300 hover:bg-slate-50 text-slate-700';
 
               if (hasAnswered) {
                 if (isCorrect) {
@@ -304,7 +304,7 @@ export const QuizView: React.FC = () => {
                 } else if (isSelected) {
                   btnStyle = 'border-rose-400 bg-rose-50/70 text-rose-900 font-semibold';
                 } else {
-                  btnStyle = 'border-slate-200 opacity-50 text-slate-500';
+                  btnStyle = 'border-[#E2E8F8] opacity-50 text-slate-500';
                 }
               } else if (isSelected) {
                 btnStyle = 'border-blue-500 bg-blue-50 text-blue-900 font-semibold';
@@ -369,7 +369,7 @@ export const QuizView: React.FC = () => {
         </div>
       ) : isFinished ? (
         /* Quiz Finished State */
-        <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-xs text-center space-y-5 animate-scaleUp">
+        <div className="bg-white rounded-3xl p-8 border border-[#E2E8F8] shadow-xs text-center space-y-5 animate-scaleUp">
           <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 text-white flex items-center justify-center mx-auto shadow-md">
             <Award className="w-8 h-8" />
           </div>
@@ -378,7 +378,7 @@ export const QuizView: React.FC = () => {
             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-2.5 py-0.5 rounded-full">
               {activeModule.title}
             </span>
-            <h3 className="text-xl font-bold text-slate-900 mt-2">Quiz Completed!</h3>
+            <h3 className="text-xl font-bold text-[#243B64] mt-2">Quiz Completed!</h3>
             <p className="text-xs text-slate-500 mt-1">
               You scored <span className="font-bold text-blue-600">{score}</span> out of{' '}
               <span className="font-bold">{questions.length}</span> correct (
@@ -418,7 +418,7 @@ export const QuizView: React.FC = () => {
       ) : null}
 
       {/* View Syllabus Accordion / Reference for Active Module */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs">
+      <div className="bg-white rounded-2xl border border-[#E2E8F8] p-5 shadow-xs">
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
             <FileText className="w-3.5 h-3.5 text-blue-600" />
@@ -440,7 +440,7 @@ export const QuizView: React.FC = () => {
           >
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
-                <h3 className="font-bold text-lg text-slate-900 flex items-center gap-2">
+                <h3 className="font-bold text-lg text-[#243B64] flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-blue-600" />
                   <span>Add Module & Syllabus</span>
                 </h3>
@@ -487,7 +487,7 @@ export const QuizView: React.FC = () => {
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 placeholder="e.g. Molecular Genetics & Transcription"
-                className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
               />
             </div>
 
@@ -502,7 +502,7 @@ export const QuizView: React.FC = () => {
                   value={newSubject}
                   onChange={(e) => setNewSubject(e.target.value)}
                   placeholder="e.g. Biology, Math, Economics"
-                  className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                  className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
                 />
               </div>
 
@@ -513,7 +513,7 @@ export const QuizView: React.FC = () => {
                 <select
                   value={newQuestionCount}
                   onChange={(e) => setNewQuestionCount(Number(e.target.value))}
-                  className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                 >
                   <option value={3}>3 Questions</option>
                   <option value={4}>4 Questions</option>
@@ -536,7 +536,7 @@ export const QuizView: React.FC = () => {
 • Concept 1: Description of principle
 • Concept 2: Key formula and definition
 • Concept 3: Experimental observation`}
-                className="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 font-mono text-slate-700"
+                className="w-full text-xs p-3 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 font-mono text-slate-700"
               />
               <span className="text-[11px] text-slate-400 mt-1 block">
                 Each bullet point or concept definition will be converted into a quiz problem with explanations.

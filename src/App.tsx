@@ -107,7 +107,7 @@ export const App: React.FC = () => {
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-bold text-lg text-slate-900 tracking-tight font-sans">
+          <span className="font-bold text-lg text-[#243B64] tracking-tight font-sans">
             Smartie
           </span>
         </div>

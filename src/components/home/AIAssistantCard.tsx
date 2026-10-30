@@ -51,21 +51,21 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
       id: 'explain',
       label: 'Explain this concept',
       icon: BookOpen,
-      iconColor: 'text-sky-500',
+      iconColor: 'text-blue-600',
       action: () => handleActionClick('Explain Faraday’s Law of Electromagnetic Induction'),
     },
     {
       id: 'summarize',
       label: 'Summarize this',
       icon: FileText,
-      iconColor: 'text-amber-500',
+      iconColor: 'text-indigo-600',
       action: () => handleActionClick('Summarize Newton’s Three Laws of Motion with key equations'),
     },
     {
       id: 'quiz',
       label: 'Test my knowledge',
       icon: Brain,
-      iconColor: 'text-rose-500',
+      iconColor: 'text-sky-600',
       action: () => {
         if (onTriggerQuiz) {
           onTriggerQuiz();
@@ -78,7 +78,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
       id: 'eli5',
       label: "Explain like I'm 5",
       icon: Baby,
-      iconColor: 'text-emerald-500',
+      iconColor: 'text-blue-500',
       action: () => handleActionClick('Explain quantum superposition like I am 5 years old'),
     },
   ];
@@ -179,9 +179,9 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-slate-200/80 transition-all hover:shadow-md">
-      {/* Search / Input Box with soft teal/cyan border matching reference */}
-      <div className="relative rounded-2xl border-2 border-emerald-300/80 bg-white p-3 md:p-4 shadow-sm focus-within:border-emerald-400 focus-within:ring-4 focus-within:ring-emerald-100/60 transition-all">
+    <div className="bg-[#F4F7FF] rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-[0_8px_30px_-6px_rgba(36,59,100,0.08),0_2px_8px_-2px_rgba(36,59,100,0.03)] border border-[#C8D9F8] transition-all duration-300 hover:border-[#ADC7F5]">
+      {/* Search / Input Box with refined border and soft shadow */}
+      <div className="relative rounded-2xl border border-[#BCD2F7] bg-white p-3.5 md:p-4 shadow-[0_2px_8px_rgba(36,59,100,0.04)] focus-within:border-blue-500 focus-within:ring-4 focus-within:ring-blue-100 transition-all duration-200">
         {/* Text Area */}
         <textarea
           rows={2}
@@ -194,12 +194,12 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
             }
           }}
           placeholder="|Ask anything"
-          className="w-full resize-none border-none bg-transparent text-sm md:text-base font-normal text-slate-800 placeholder-slate-400 focus:outline-none"
+          className="w-full resize-none border-none bg-transparent text-sm md:text-base font-normal text-[#243B64] placeholder-[#7A91B4] focus:outline-none"
         />
 
         {/* Attached file chip */}
         {attachedFile && (
-          <div className="flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-lg w-fit mb-2">
+          <div className="flex items-center gap-1.5 bg-[#F0F4FF] border border-[#D6E2FC] text-blue-700 text-xs px-2.5 py-1 rounded-lg w-fit mb-2">
             <span>📎 {attachedFile}</span>
             <button
               onClick={() => setAttachedFile(null)}
@@ -225,7 +225,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+            className="p-2 text-[#7A91B4] hover:text-[#243B64] rounded-xl hover:bg-[#F0F4FF] transition-colors"
             title="Attach image or notes"
           >
             <Image className="w-5 h-5" />
@@ -236,10 +236,10 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
             <button
               type="button"
               onClick={() => setIsListening(!isListening)}
-              className={`p-1.5 rounded-lg transition-colors ${
+              className={`p-2 rounded-xl transition-colors ${
                 isListening
                   ? 'bg-rose-100 text-rose-600 animate-pulse'
-                  : 'text-slate-400 hover:text-slate-600 hover:bg-slate-100'
+                  : 'text-[#7A91B4] hover:text-[#243B64] hover:bg-[#F0F4FF]'
               }`}
               title={isListening ? 'Stop listening' : 'Voice input'}
             >
@@ -254,9 +254,9 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
               type="button"
               onClick={() => executePrompt(inputValue)}
               disabled={!inputValue.trim() || isGenerating}
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all duration-200 ${
                 inputValue.trim() && !isGenerating
-                  ? 'bg-blue-600 text-white shadow-sm hover:bg-blue-700 cursor-pointer'
+                  ? 'bg-[#243B64] hover:bg-[#162540] text-white shadow-[0_2px_8px_rgba(36,59,100,0.25)] hover:shadow-[0_4px_12px_rgba(36,59,100,0.35)] hover:-translate-y-0.5 cursor-pointer'
                   : 'bg-slate-100 text-slate-400 cursor-not-allowed'
               }`}
             >
@@ -271,17 +271,17 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
         </div>
       </div>
 
-      {/* Quick Action Chips Row */}
-      <div className="flex flex-wrap items-center gap-2 mt-4">
+      {/* Quick Action Chips Row with smooth hover elevation */}
+      <div className="flex flex-wrap items-center gap-2.5 mt-4">
         {quickActions.map((qa) => {
           const Icon = qa.icon;
           return (
             <button
               key={qa.id}
               onClick={qa.action}
-              className="flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200/80 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-700 text-xs font-medium transition-all shadow-sm group hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-[#D6E2FC] bg-white hover:bg-white text-[#243B64] hover:text-blue-700 text-xs font-semibold transition-all duration-200 shadow-[0_1px_4px_rgba(36,59,100,0.04)] hover:shadow-[0_4px_12px_rgba(36,59,100,0.08)] hover:-translate-y-0.5 hover:border-blue-400 group"
             >
-              <Icon className={`w-3.5 h-3.5 ${qa.iconColor} group-hover:scale-110 transition-transform`} />
+              <Icon className={`w-3.5 h-3.5 ${qa.iconColor} group-hover:scale-110 transition-transform duration-200`} />
               <span>{qa.label}</span>
             </button>
           );
@@ -299,14 +299,14 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
       )}
 
       {activeResponse && !isGenerating && (
-        <div className="mt-4 rounded-2xl border border-blue-100 bg-gradient-to-b from-blue-50/40 to-white p-4 shadow-sm transition-all animate-fadeIn">
+        <div className="mt-4 rounded-2xl border border-[#D6E2FC] bg-white p-4 shadow-[0_4px_16px_rgba(36,59,100,0.06)] transition-all animate-fadeIn">
           {/* Response Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-blue-100/60">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F8]">
             <div className="flex items-center gap-2">
-              <span className="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+              <span className="bg-[#243B64] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
                 {activeResponse.type}
               </span>
-              <h4 className="text-sm font-bold text-slate-800">
+              <h4 className="text-sm font-bold text-[#243B64]">
                 {activeResponse.title}
               </h4>
             </div>
@@ -314,7 +314,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
             <div className="flex items-center gap-1.5">
               <button
                 onClick={copyResponse}
-                className="p-1 text-slate-400 hover:text-slate-600 rounded transition-colors"
+                className="p-1.5 text-[#7A91B4] hover:text-[#243B64] rounded-lg transition-colors"
                 title="Copy response"
               >
                 {copied ? (
@@ -325,7 +325,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
               </button>
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="p-1 text-slate-400 hover:text-slate-600 rounded"
+                className="p-1.5 text-[#7A91B4] hover:text-[#243B64] rounded-lg"
               >
                 {isExpanded ? (
                   <ChevronUp className="w-4 h-4" />
@@ -335,7 +335,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
               </button>
               <button
                 onClick={() => setActiveResponse(null)}
-                className="p-1 text-slate-400 hover:text-slate-600 rounded"
+                className="p-1.5 text-[#7A91B4] hover:text-[#243B64] rounded-lg"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -345,7 +345,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
           {/* Response Content */}
           {isExpanded && (
             <div className="pt-3 space-y-2.5">
-              <ul className="space-y-1.5 text-xs text-slate-700 leading-relaxed list-disc list-inside">
+              <ul className="space-y-1.5 text-xs text-[#243B64] leading-relaxed list-disc list-inside">
                 {activeResponse.content.map((item, idx) => (
                   <li key={idx} className="pl-1">
                     <span>{item}</span>
@@ -354,10 +354,10 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
               </ul>
 
               {activeResponse.keyTakeaway && (
-                <div className="bg-amber-50/80 border border-amber-200/60 rounded-xl p-2.5 text-xs text-amber-900 mt-2 flex items-start gap-2">
+                <div className="bg-[#F0F4FF] border border-[#D6E2FC] rounded-xl p-3 text-xs text-[#243B64] mt-2 flex items-start gap-2">
                   <span className="text-base leading-none">💡</span>
                   <div>
-                    <span className="font-semibold">Takeaway: </span>
+                    <span className="font-bold text-[#243B64]">Takeaway: </span>
                     {activeResponse.keyTakeaway}
                   </div>
                 </div>

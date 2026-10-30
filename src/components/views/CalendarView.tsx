@@ -67,7 +67,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
         );
       case 'low':
         return (
-          <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-[#E2E8F8] px-2 py-0.5 rounded-full">
             Normal
           </span>
         );
@@ -79,7 +79,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl font-bold text-[#243B64] tracking-tight">
             Calendar
           </h2>
           <p className="text-xs md:text-sm text-slate-500 mt-1">
@@ -100,7 +100,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
         {/* Main To-Do List */}
         <div className="lg:col-span-2 space-y-4">
           {/* Filters Bar */}
-          <div className="flex items-center justify-between bg-white p-2 rounded-xl border border-slate-200/80 shadow-xs">
+          <div className="flex items-center justify-between bg-white p-2 rounded-xl border border-[#E2E8F8] shadow-xs">
             <div className="flex items-center gap-1">
               {(['all', 'pending', 'completed'] as const).map((tab) => (
                 <button
@@ -125,7 +125,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           {/* Task Items */}
           <div className="space-y-2.5">
             {filteredTasks.length === 0 ? (
-              <div className="bg-white rounded-2xl border border-slate-200/80 p-8 text-center text-slate-400">
+              <div className="bg-white rounded-2xl border border-[#E2E8F8] p-8 text-center text-slate-400">
                 <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2 opacity-80" />
                 <p className="text-sm font-semibold text-slate-700">No tasks in this view</p>
                 <p className="text-xs mt-1">All caught up or ready to add your next study goal!</p>
@@ -137,7 +137,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   className={`bg-white rounded-xl border p-3.5 flex items-center justify-between gap-3 shadow-xs hover:shadow-sm transition-all ${
                     task.completed
                       ? 'border-slate-200/60 bg-slate-50/50 opacity-70'
-                      : 'border-slate-200/80 hover:border-blue-200'
+                      : 'border-[#E2E8F8] hover:border-blue-200'
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0 flex-1">
@@ -191,9 +191,9 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
 
         {/* Sidebar: Mini Calendar & Study Tip */}
         <div className="space-y-4">
-          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+          <div className="bg-white p-5 rounded-2xl border border-[#E2E8F8] shadow-xs">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <h3 className="font-bold text-[#243B64] text-sm flex items-center gap-2">
                 <CalendarIcon className="w-4 h-4 text-blue-600" />
                 <span>Upcoming Study Schedule</span>
               </h3>
@@ -242,7 +242,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
             onSubmit={handleCreateTask}
             className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4 animate-scaleUp"
           >
-            <h3 className="font-bold text-lg text-slate-900">Add New Learning Task</h3>
+            <h3 className="font-bold text-lg text-[#243B64]">Add New Learning Task</h3>
 
             <div>
               <label className="text-xs font-semibold text-slate-700 block mb-1">
@@ -254,7 +254,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 placeholder="e.g. Review Lenz's Law & Faraday Equations"
-                className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+                className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
               />
             </div>
 
@@ -265,7 +265,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
               <select
                 value={newSubject}
                 onChange={(e) => setNewSubject(e.target.value)}
-                className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20"
               >
                 <option value="Physics 12A">Physics 12A</option>
                 <option value="CS500 Coding">CS500 Coding</option>
@@ -285,7 +285,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   value={newDueDate}
                   onChange={(e) => setNewDueDate(e.target.value)}
                   placeholder="e.g. Tomorrow, 5 PM"
-                  className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                 />
               </div>
 
@@ -296,7 +296,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 <select
                   value={newPriority}
                   onChange={(e) => setNewPriority(e.target.value as any)}
-                  className="w-full text-xs p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full text-xs p-2.5 rounded-xl border border-[#E2E8F8] focus:outline-none focus:ring-2 focus:ring-blue-500/20"
                 >
                   <option value="high">High</option>
                   <option value="medium">Medium</option>

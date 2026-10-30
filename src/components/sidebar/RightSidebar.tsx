@@ -36,45 +36,43 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
     }
   };
 
-  // Color mapping for heatmap levels
+  // Cohesive blue palette for heatmap levels
   const getLevelColor = (level: number) => {
     switch (level) {
       case 0:
-        return 'bg-slate-100 hover:ring-1 hover:ring-slate-300';
+        return 'bg-white hover:ring-1 hover:ring-blue-200';
       case 1:
-        return 'bg-blue-200 hover:ring-1 hover:ring-blue-400';
+        return 'bg-[#C8DBFC] hover:ring-1 hover:ring-blue-400';
       case 2:
-        return 'bg-blue-400 hover:ring-1 hover:ring-blue-500';
+        return 'bg-[#7EABF7] hover:ring-1 hover:ring-blue-500';
       case 3:
-        return 'bg-blue-600 hover:ring-1 hover:ring-blue-700';
+        return 'bg-[#3B82F6] hover:ring-1 hover:ring-blue-600';
       case 4:
-        return 'bg-[#1e3a8a] hover:ring-1 hover:ring-blue-900';
+        return 'bg-[#243B64] hover:ring-1 hover:ring-[#162540]';
       default:
-        return 'bg-slate-100';
+        return 'bg-white';
     }
   };
 
   return (
-    <aside className="w-full xl:w-80 bg-white border-l border-slate-200/70 p-6 flex flex-col gap-6 overflow-y-auto">
+    <aside className="w-full xl:w-80 bg-[#F0F4FF] border-l border-[#E2E8F8] p-6 flex flex-col gap-5 overflow-y-auto">
       {/* Top Student Profile Card */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3.5 bg-white p-3.5 rounded-2xl border border-[#E2E8F8] shadow-[0_2px_8px_-2px_rgba(36,59,100,0.05)] hover:shadow-md transition-shadow">
         <SmartieAvatar size="lg" />
-        <div>
-          <h2 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-1.5">
+        <div className="min-w-0">
+          <h2 className="text-lg font-bold text-[#243B64] tracking-tight truncate">
             {profile.name}
           </h2>
-          <span className="text-[11px] font-bold tracking-wider text-slate-500 uppercase bg-slate-100 px-2 py-0.5 rounded-md inline-block mt-0.5">
+          <span className="text-[10px] font-bold tracking-wider text-[#243B64] uppercase bg-[#F0F4FF] border border-[#D6E2FC] px-2 py-0.5 rounded-md inline-block mt-0.5">
             {profile.title}
           </span>
         </div>
       </div>
 
-      <div className="h-px bg-slate-100 w-full" />
-
-      {/* GAME PLAN */}
-      <div>
+      {/* GAME PLAN CARD */}
+      <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-[0_2px_8px_-2px_rgba(36,59,100,0.04)] hover:border-[#D6E2FC] transition-colors">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-[#7A91B4]">
             Game Plan
           </span>
           <button
@@ -85,7 +83,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
                 setIsEditingGamePlan(true);
               }
             }}
-            className="text-slate-400 hover:text-blue-600 transition-colors p-1"
+            className="text-[#7A91B4] hover:text-blue-600 transition-colors p-1"
             title={isEditingGamePlan ? 'Save goal' : 'Edit goal'}
           >
             {isEditingGamePlan ? (
@@ -101,42 +99,40 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
             <textarea
               value={gamePlanText}
               onChange={(e) => setGamePlanText(e.target.value)}
-              className="w-full text-xs font-medium text-slate-700 p-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 bg-blue-50/20"
+              className="w-full text-xs font-medium text-[#243B64] p-2.5 border border-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 bg-blue-50/30"
               rows={3}
               autoFocus
             />
             <button
               onClick={handleSaveGamePlan}
-              className="text-xs bg-blue-600 text-white px-3 py-1 rounded-md font-medium hover:bg-blue-700"
+              className="text-xs bg-[#243B64] hover:bg-[#162540] text-white px-3 py-1.5 rounded-lg font-medium transition-colors"
             >
               Update Plan
             </button>
           </div>
         ) : (
-          <p className="text-[13px] font-semibold text-slate-800 leading-snug">
+          <p className="text-xs font-semibold text-[#243B64] leading-relaxed">
             {profile.gamePlan}
           </p>
         )}
       </div>
 
-      <div className="h-px bg-slate-100 w-full" />
-
-      {/* HOW I LIKE TO LEARN */}
-      <div>
-        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3.5">
+      {/* HOW I LIKE TO LEARN CARD */}
+      <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-[0_2px_8px_-2px_rgba(36,59,100,0.04)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-[#7A91B4] mb-3">
           How I Like To Learn
         </div>
 
         <div className="space-y-3">
           {preferences.map((pref) => (
             <div key={pref.name} className="flex items-center justify-between text-xs">
-              <span className="text-slate-700 font-medium">{pref.name}</span>
-              <div className="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+              <span className="text-[#243B64] font-medium">{pref.name}</span>
+              <div className="w-24 h-2 bg-[#F0F4FF] rounded-full overflow-hidden border border-[#E2E8F8]/60">
                 <div
                   className="h-full rounded-full transition-all duration-500"
                   style={{
                     width: `${pref.percentage}%`,
-                    backgroundColor: pref.color,
+                    backgroundColor: pref.color === '#f97316' ? '#2563eb' : pref.color,
                   }}
                 />
               </div>
@@ -145,11 +141,9 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
         </div>
       </div>
 
-      <div className="h-px bg-slate-100 w-full" />
-
-      {/* VALUES */}
-      <div>
-        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+      {/* VALUES CARD */}
+      <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-[0_2px_8px_-2px_rgba(36,59,100,0.04)]">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-[#7A91B4] mb-3">
           Values
         </div>
 
@@ -158,7 +152,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
             <button
               key={v.label}
               onClick={() => onValueClick && onValueClick(v.label)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200/60 text-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#F0F4FF] hover:bg-white text-[#243B64] border border-[#D6E2FC] hover:shadow-[0_2px_6px_-1px_rgba(36,59,100,0.08)] hover:-translate-y-0.5 transition-all duration-200"
             >
               <span>{v.emoji}</span>
               <span>{v.label}</span>
@@ -167,20 +161,18 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
         </div>
       </div>
 
-      <div className="h-px bg-slate-100 w-full" />
-
-      {/* LEARNING SESSIONS (HEATMAP) */}
-      <div>
+      {/* LEARNING SESSIONS (HEATMAP) CARD */}
+      <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-[0_2px_8px_-2px_rgba(36,59,100,0.04)]">
         <div className="flex items-center justify-between mb-1">
-          <div className="text-[13px] font-bold text-slate-800">Learning Sessions</div>
-          <Sparkles className="w-3.5 h-3.5 text-blue-500" />
+          <div className="text-xs font-bold text-[#243B64]">Learning Sessions</div>
+          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
         </div>
-        <div className="text-xs text-slate-500 mb-4 font-normal">
+        <div className="text-[11px] text-[#7A91B4] mb-3 font-normal">
           174 study sessions in the last year
         </div>
 
         {/* Month labels */}
-        <div className="flex justify-between text-[11px] text-slate-400 font-medium px-1 mb-2">
+        <div className="flex justify-between text-[10px] text-[#7A91B4] font-semibold px-1 mb-1.5">
           <span>Jan</span>
           <span>Feb</span>
           <span>Mar</span>
@@ -189,7 +181,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
 
         {/* Heatmap Grid */}
         <div className="relative">
-          <div className="grid grid-flow-col grid-rows-7 gap-[3px] p-2 bg-slate-50/70 rounded-xl border border-slate-100">
+          <div className="grid grid-flow-col grid-rows-7 gap-[3px] p-2 bg-[#F0F4FF]/70 rounded-xl border border-[#E2E8F8]">
             {heatmapWeeks.map((week, wIdx) =>
               week.map((day, dIdx) => (
                 <div
@@ -206,7 +198,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
 
           {/* Interactive Tooltip */}
           {hoveredDay && (
-            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[11px] px-2.5 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap z-30">
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-[#162540] text-white text-[11px] px-2.5 py-1 rounded-lg shadow-lg pointer-events-none whitespace-nowrap z-30 border border-blue-900/40">
               <span className="font-semibold">{hoveredDay.date}:</span>{' '}
               {hoveredDay.count > 0
                 ? `${hoveredDay.count} sessions (${hoveredDay.hours} hrs)`
@@ -216,13 +208,13 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
         </div>
 
         {/* Legend */}
-        <div className="flex items-center justify-end gap-1.5 text-[11px] text-slate-400 mt-3 px-1">
+        <div className="flex items-center justify-end gap-1.5 text-[10px] text-[#7A91B4] mt-3 px-1 font-medium">
           <span>Less</span>
-          <div className="w-2.5 h-2.5 rounded-[2px] bg-slate-100" />
-          <div className="w-2.5 h-2.5 rounded-[2px] bg-blue-200" />
-          <div className="w-2.5 h-2.5 rounded-[2px] bg-blue-400" />
-          <div className="w-2.5 h-2.5 rounded-[2px] bg-blue-600" />
-          <div className="w-2.5 h-2.5 rounded-[2px] bg-[#1e3a8a]" />
+          <div className="w-2.5 h-2.5 rounded-[2px] bg-white border border-[#E2E8F8]" />
+          <div className="w-2.5 h-2.5 rounded-[2px] bg-[#C8DBFC]" />
+          <div className="w-2.5 h-2.5 rounded-[2px] bg-[#7EABF7]" />
+          <div className="w-2.5 h-2.5 rounded-[2px] bg-[#3B82F6]" />
+          <div className="w-2.5 h-2.5 rounded-[2px] bg-[#243B64]" />
           <span>More</span>
         </div>
       </div>

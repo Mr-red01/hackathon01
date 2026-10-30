@@ -32,7 +32,7 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
       {/* Header with Navigation arrows */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <h3 className="text-base md:text-lg font-bold text-slate-900 tracking-tight">
+          <h3 className="text-base md:text-lg font-bold text-[#243B64] tracking-tight">
             Learning Progress
           </h3>
           <span className="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full border border-blue-200/50">
@@ -42,13 +42,13 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
 
         <div className="flex items-center gap-1.5">
           <button
-            className="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors"
+            className="w-7 h-7 rounded-full bg-white border border-[#E2E8F8] shadow-xs flex items-center justify-center text-slate-500 hover:text-[#243B64] hover:bg-[#F0F4FF] transition-colors"
             aria-label="Previous progress"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
-            className="w-7 h-7 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors"
+            className="w-7 h-7 rounded-full bg-white border border-[#E2E8F8] shadow-xs flex items-center justify-center text-slate-500 hover:text-[#243B64] hover:bg-[#F0F4FF] transition-colors"
             aria-label="Next progress"
           >
             <ChevronRight className="w-4 h-4" />
@@ -61,11 +61,11 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
         {/* Card 1: Leaderboard */}
         <div
           onClick={onOpenAnalytics}
-          className="group bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group bg-white rounded-2xl border border-[#E2E8F8] p-4 shadow-xs hover:shadow-[0_12px_28px_-4px_rgba(36,59,100,0.1)] hover:-translate-y-0.5 hover:border-[#BFD5FA] transition-all cursor-pointer flex flex-col justify-between"
         >
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h4 className="font-bold text-slate-900 text-sm tracking-tight flex items-center gap-1.5">
+              <h4 className="font-bold text-[#243B64] text-sm tracking-tight flex items-center gap-1.5">
                 <Trophy className="w-4 h-4 text-amber-500" />
                 <span>Leaderboard</span>
               </h4>
@@ -121,11 +121,11 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
         {/* Card 2: Learning Streak & Visual Tracker */}
         <div
           onClick={onOpenAnalytics}
-          className="group bg-white rounded-2xl border border-slate-200/80 p-4 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+          className="group bg-white rounded-2xl border border-[#E2E8F8] p-4 shadow-xs hover:shadow-[0_12px_28px_-4px_rgba(36,59,100,0.1)] hover:-translate-y-0.5 hover:border-[#BFD5FA] transition-all cursor-pointer flex flex-col justify-between"
         >
           <div>
             <div className="flex items-center justify-between mb-1">
-              <h4 className="font-bold text-slate-900 text-sm tracking-tight flex items-center gap-1.5">
+              <h4 className="font-bold text-[#243B64] text-sm tracking-tight flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
                 <span>Learning Streak</span>
               </h4>

@@ -90,7 +90,7 @@ export const ClassroomView: React.FC<ClassroomViewProps> = ({
       </button>
 
       {/* Classroom Banner */}
-      <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#E2E8F8] shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center p-3 ${details.color}`}>
             <Icon className="w-8 h-8" />
@@ -103,7 +103,7 @@ export const ClassroomView: React.FC<ClassroomViewProps> = ({
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               <span className="text-xs font-medium text-emerald-600">Active Classroom</span>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mt-0.5">
+            <h2 className="text-2xl font-bold text-[#243B64] mt-0.5">
               {classroomName}
             </h2>
             <p className="text-xs text-slate-500 mt-1">
@@ -122,8 +122,8 @@ export const ClassroomView: React.FC<ClassroomViewProps> = ({
       </div>
 
       {/* Modules List */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs">
-        <h3 className="font-bold text-slate-900 text-base mb-1">Curriculum & Modules</h3>
+      <div className="bg-white rounded-3xl p-6 border border-[#E2E8F8] shadow-xs">
+        <h3 className="font-bold text-[#243B64] text-base mb-1">Curriculum & Modules</h3>
         <p className="text-xs text-slate-400 mb-4">Master each core competency to earn course credit.</p>
 
         <div className="space-y-3">
@@ -133,7 +133,7 @@ export const ClassroomView: React.FC<ClassroomViewProps> = ({
               className="p-4 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3"
             >
               <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-700 shadow-xs">
+                <span className="w-8 h-8 rounded-xl bg-white border border-[#E2E8F8] flex items-center justify-center text-xs font-bold text-slate-700 shadow-xs">
                   {idx + 1}
                 </span>
                 <div>

@@ -36,7 +36,7 @@ export const AnalyticsView: React.FC = () => {
     <div className="space-y-6 animate-fadeIn pb-12">
       {/* Page Header */}
       <div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-2xl font-bold text-[#243B64] tracking-tight">
           Learning Analytics & Insights
         </h2>
         <p className="text-xs md:text-sm text-slate-500 mt-1">
@@ -46,45 +46,45 @@ export const AnalyticsView: React.FC = () => {
 
       {/* Top 4 Key Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-semibold text-slate-600">Total Study Time</span>
             <Clock className="w-4 h-4 text-blue-500" />
           </div>
-          <div className="text-2xl font-bold text-slate-900">142.5 hrs</div>
+          <div className="text-2xl font-bold text-[#243B64]">142.5 hrs</div>
           <div className="flex items-center gap-1 text-[11px] text-emerald-600 font-semibold mt-1">
             <TrendingUp className="w-3 h-3" /> +18.2% this month
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-semibold text-slate-600">Current Streak</span>
             <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
           </div>
-          <div className="text-2xl font-bold text-slate-900">14 Days</div>
+          <div className="text-2xl font-bold text-[#243B64]">14 Days</div>
           <div className="text-[11px] text-slate-500 mt-1">
             Personal best: 28 days
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-semibold text-slate-600">Quiz Accuracy</span>
             <Award className="w-4 h-4 text-amber-500" />
           </div>
-          <div className="text-2xl font-bold text-slate-900">89.4%</div>
+          <div className="text-2xl font-bold text-[#243B64]">89.4%</div>
           <div className="flex items-center gap-1 text-[11px] text-emerald-600 font-semibold mt-1">
             <TrendingUp className="w-3 h-3" /> +4.1% vs last week
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white p-4 rounded-2xl border border-[#E2E8F8] shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-semibold text-slate-600">Sessions Year-to-Date</span>
             <Sparkles className="w-4 h-4 text-purple-500" />
           </div>
-          <div className="text-2xl font-bold text-slate-900">174</div>
+          <div className="text-2xl font-bold text-[#243B64]">174</div>
           <div className="text-[11px] text-slate-500 mt-1">
             Target: 250 sessions
           </div>
@@ -94,10 +94,10 @@ export const AnalyticsView: React.FC = () => {
       {/* Main Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Weekly Study Hours Bar Chart */}
-        <div className="lg:col-span-2 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="lg:col-span-2 bg-white p-5 rounded-2xl border border-[#E2E8F8] shadow-xs">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm md:text-base">
+              <h3 className="font-bold text-[#243B64] text-sm md:text-base">
                 Weekly Study Time Distribution
               </h3>
               <p className="text-xs text-slate-400">
@@ -154,9 +154,9 @@ export const AnalyticsView: React.FC = () => {
         </div>
 
         {/* Subject Breakdown */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div className="bg-white p-5 rounded-2xl border border-[#E2E8F8] shadow-xs flex flex-col justify-between">
           <div>
-            <h3 className="font-bold text-slate-900 text-sm md:text-base mb-1">
+            <h3 className="font-bold text-[#243B64] text-sm md:text-base mb-1">
               Subject Focus
             </h3>
             <p className="text-xs text-slate-400 mb-4">
@@ -195,8 +195,8 @@ export const AnalyticsView: React.FC = () => {
       </div>
 
       {/* Milestones & Badges */}
-      <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
-        <h3 className="font-bold text-slate-900 text-sm md:text-base mb-1">
+      <div className="bg-white p-5 rounded-2xl border border-[#E2E8F8] shadow-xs">
+        <h3 className="font-bold text-[#243B64] text-sm md:text-base mb-1">
           Recent Achievements & Badges
         </h3>
         <p className="text-xs text-slate-400 mb-4">
