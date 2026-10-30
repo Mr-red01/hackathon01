@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        mindjoy: {
+        smartie: {
           50: '#f0f5ff',
           100: '#e5edff',
           200: '#cddbfe',

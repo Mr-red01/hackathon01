@@ -14,7 +14,7 @@ import {
   X
 } from 'lucide-react';
 import type { DashboardTab } from '../../types';
-import { MindjoyLogo, HanaAvatar } from '../illustrations/CourseIllustrations';
+import { SmartieLogo, SmartieAvatar } from '../illustrations/CourseIllustrations';
 
 interface LeftSidebarProps {
   currentTab: DashboardTab;
@@ -89,10 +89,10 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
               className="flex items-center gap-2.5 cursor-pointer group select-none"
             >
               <div className="w-8 h-8 rounded-xl bg-white shadow-sm flex items-center justify-center p-1 group-hover:scale-105 transition-transform">
-                <MindjoyLogo className="w-6 h-6" />
+                <SmartieLogo className="w-6 h-6" />
               </div>
               <span className="font-bold text-xl tracking-tight text-slate-800 font-sans">
-                Mindjoy
+                Smartie
               </span>
             </div>
 
@@ -207,13 +207,13 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
             className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-white/80 transition-all border border-transparent hover:border-slate-200/60 text-left group"
           >
             <div className="flex items-center gap-2.5 min-w-0">
-              <HanaAvatar size="sm" />
+              <SmartieAvatar size="sm" />
               <div className="min-w-0">
                 <div className="text-xs font-semibold text-slate-800 truncate group-hover:text-blue-600 transition-colors">
-                  Hana
+                  Smartie
                 </div>
                 <div className="text-[11px] text-slate-400 truncate">
-                  hana@mindjoy.com
+                  smartie@smartie.ai
                 </div>
               </div>
             </div>

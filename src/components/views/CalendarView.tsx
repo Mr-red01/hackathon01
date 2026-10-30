@@ -227,7 +227,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           </div>
 
           <div className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-5 rounded-2xl shadow-sm">
-            <h4 className="font-bold text-sm mb-1">Study Tip from Mindjoy AI</h4>
+            <h4 className="font-bold text-sm mb-1">Study Tip from Smartie AI</h4>
             <p className="text-xs text-blue-100 leading-relaxed">
               Spacing out your Physics practice in 25-minute sprints (Pomodoro) gives your brain time to assimilate vector math concepts effortlessly!
             </p>

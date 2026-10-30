@@ -19,7 +19,7 @@ import { QuizView } from './components/views/QuizView';
 import { ClassroomView } from './components/views/ClassroomView';
 import { CourseModal } from './components/modals/CourseModal';
 import { TutorModal } from './components/modals/TutorModal';
-import { HanaAvatar } from './components/illustrations/CourseIllustrations';
+import { SmartieAvatar } from './components/illustrations/CourseIllustrations';
 
 export const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<DashboardTab>('home');
@@ -95,7 +95,7 @@ export const App: React.FC = () => {
             <Menu className="w-5 h-5" />
           </button>
           <span className="font-bold text-lg text-slate-900 tracking-tight font-sans">
-            Mindjoy
+            Smartie
           </span>
         </div>
 
@@ -111,7 +111,7 @@ export const App: React.FC = () => {
             onClick={() => handleSelectTab('analytics')}
             className="cursor-pointer"
           >
-            <HanaAvatar size="sm" />
+            <SmartieAvatar size="sm" />
           </div>
         </div>
       </header>

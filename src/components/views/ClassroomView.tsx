@@ -64,7 +64,7 @@ export const ClassroomView: React.FC<ClassroomViewProps> = ({
         return {
           icon: BookOpen,
           color: 'text-blue-500 bg-blue-50',
-          instructor: 'Mindjoy Faculty',
+          instructor: 'Smartie Faculty',
           code: 'GEN-100',
           schedule: 'Flexible Online Pacing',
           modules: [

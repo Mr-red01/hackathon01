@@ -4,7 +4,7 @@ import type { Tutor } from '../../types';
 import {
   CoderTutorAvatar,
   PhysicsTutorAvatar,
-  HanaAvatar
+  SmartieAvatar
 } from '../illustrations/CourseIllustrations';
 
 interface TutorModalProps {
@@ -28,8 +28,8 @@ export const TutorModal: React.FC<TutorModalProps> = ({ tutor, onClose }) => {
       id: '1',
       sender: 'tutor',
       text: tutor.avatarType === 'coder'
-        ? `Hey Hana! Ready to tackle some code? We were recently looking at CS500 data structures. What can I help you debug or explain today?`
-        : `Greetings Hana! Welcome back to Physics 101. Are you working on magnetic flux or forces and free-body equilibrium today?`,
+        ? `Hey Smartie! Ready to tackle some code? We were recently looking at CS500 data structures. What can I help you debug or explain today?`
+        : `Greetings Smartie! Welcome back to Physics 101. Are you working on magnetic flux or forces and free-body equilibrium today?`,
       timestamp: 'Just now'
     }
   ]);
@@ -121,7 +121,7 @@ export const TutorModal: React.FC<TutorModalProps> = ({ tutor, onClose }) => {
               }`}
             >
               {msg.sender === 'user' ? (
-                <HanaAvatar size="sm" />
+                <SmartieAvatar size="sm" />
               ) : (
                 <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 flex-shrink-0">
                   <Bot className="w-4 h-4" />

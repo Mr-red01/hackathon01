@@ -83,7 +83,7 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
                 <div
                   key={item.rank}
                   className={`flex items-center justify-between p-2 rounded-xl text-xs transition-colors ${
-                    item.name.includes('Hana')
+                    item.name.includes('Smartie')
                       ? 'bg-blue-50/70 border border-blue-100 font-semibold'
                       : 'hover:bg-slate-50'
                   }`}
@@ -188,3 +188,4 @@ export const LearningProgressSection: React.FC<LearningProgressSectionProps> = (
     </section>
   );
 };
+

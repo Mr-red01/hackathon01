@@ -293,7 +293,7 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
         <div className="mt-4 p-4 rounded-2xl bg-blue-50/50 border border-blue-100 flex items-center gap-3">
           <Sparkles className="w-5 h-5 text-blue-600 animate-spin" />
           <span className="text-sm font-medium text-blue-700">
-            Synthesizing explanation for Hana...
+            Synthesizing explanation for Smartie...
           </span>
         </div>
       )}
@@ -380,3 +380,4 @@ export const AIAssistantCard: React.FC<AIAssistantCardProps> = ({
     </div>
   );
 };
+

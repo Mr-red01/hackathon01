@@ -6,12 +6,13 @@ import type {
   Tutor,
   TaskItem,
   QuizQuestion,
+  SyllabusModule,
   StudyDay
 } from '../types';
 
 export const initialProfile: StudentProfile = {
-  name: 'Hana',
-  email: 'hana@mindjoy.com',
+  name: 'Smartie',
+  email: 'smartie@smartie.ai',
   avatarUrl: '', // Generated dynamically via SVG geometric avatar
   title: 'PROBLEM SOLVER',
   gamePlan: "I'm aiming to do well academically by mastering the basics."
@@ -64,7 +65,7 @@ export const continueLearningCourses: LearningCourse[] = [
   {
     id: 'course-3',
     title: 'Forces & Motion Essentials',
-    subject: 'Mindjoy Physics',
+    subject: 'Smartie Physics',
     progress: 42,
     duration: '2 hrs',
     theme: 'purple',
@@ -284,7 +285,90 @@ export const sampleQuizQuestions: QuizQuestion[] = [
 
 export const mockLeaderboard = [
   { rank: 1, name: 'Alex Chen', time: '16.2 hrs', avatar: 'AC', color: '#6366f1', badge: '🏆 Top Learner' },
-  { rank: 2, name: 'Hana (You)', time: '14.5 hrs', avatar: 'H', color: '#3b82f6', badge: '🔥 14-day streak' },
+  { rank: 2, name: 'Smartie (You)', time: '14.5 hrs', avatar: 'S', color: '#3b82f6', badge: '🔥 14-day streak' },
   { rank: 3, name: 'Leo Martinez', time: '12.8 hrs', avatar: 'LM', color: '#10b981', badge: '⚡ Quick Finisher' },
   { rank: 4, name: 'Sarah Jenkins', time: '11.0 hrs', avatar: 'SJ', color: '#f59e0b', badge: '📚 Avid Reader' }
 ];
+
+export const initialSyllabusModules: SyllabusModule[] = [
+  {
+    id: 'module-default-physics',
+    title: 'Physics 12A & Classical Mechanics',
+    subject: 'Physics',
+    syllabusText: `1. Faraday's Law of Induction: Time-varying magnetic flux induces EMF in closed loops.
+2. Lenz's Law: Induced current opposes original change in flux.
+3. Newton's Laws of Motion: Inertia, F=ma, Action-Reaction pairs.
+4. Lorentz Force: Force on moving charge in magnetic fields, F = q(v x B).
+5. Rotational Dynamics: Torque, angular momentum, and moment of inertia.`,
+    createdAt: 'Default Curriculum',
+    questionsCount: 4,
+    questions: sampleQuizQuestions,
+    isCustom: false,
+  },
+  {
+    id: 'module-sample-cs',
+    title: 'CS500 Data Structures & Algorithms',
+    subject: 'Computer Science',
+    syllabusText: `1. Binary Search Trees: In-order traversal yields sorted order; average lookup is O(log n).
+2. Hash Tables: Key-value mapping with constant O(1) expected lookup, collision resolution via chaining or open addressing.
+3. Graph Algorithms: Breadth-First Search (BFS) for shortest unweighted path; Depth-First Search (DFS) for cycle detection.
+4. Dynamic Programming: Memoization and optimal substructure applied to knapsack and Fibonacci problems.`,
+    createdAt: 'Curriculum Core',
+    questionsCount: 3,
+    questions: [
+      {
+        id: 101,
+        subject: 'CS500 Data Structures',
+        question: 'Which traversal of a Binary Search Tree produces values in strictly ascending sorted order?',
+        options: ['Pre-order traversal', 'In-order traversal', 'Post-order traversal', 'Level-order BFS traversal'],
+        correctAnswer: 1,
+        explanation: 'In-order traversal visits Left Subtree -> Root Node -> Right Subtree, which directly yields elements in ascending sorted order for any valid BST.'
+      },
+      {
+        id: 102,
+        subject: 'CS500 Data Structures',
+        question: 'In an open addressing hash table with linear probing, what is the primary drawback when multiple keys hash to adjacent slots?',
+        options: ['Primary clustering', 'Memory fragmentation', 'Stack overflow', 'Dangling pointers'],
+        correctAnswer: 0,
+        explanation: 'Primary clustering occurs when occupied slots cluster together, creating longer probe sequences and degrading search performance.'
+      },
+      {
+        id: 103,
+        subject: 'CS500 Algorithms',
+        question: 'Which graph traversal algorithm guarantees finding the shortest path between two vertices in an unweighted graph?',
+        options: ['Depth-First Search (DFS)', 'Breadth-First Search (BFS)', 'Topological Sort', 'Kruskal Algorithm'],
+        correctAnswer: 1,
+        explanation: 'Breadth-First Search explores vertices level by level, guaranteeing that the first time a target vertex is reached, the path taken has minimum edge count.'
+      }
+    ],
+    isCustom: false,
+  }
+];
+
+export const syllabusPresets = [
+  {
+    title: 'Cellular Respiration & Bioenergetics',
+    subject: 'Biology',
+    syllabusText: `• Glycolysis: Glucose breaks down into pyruvate in the cytoplasm, yielding 2 ATP and 2 NADH.
+• Krebs Cycle (Citric Acid Cycle): Occurs in mitochondrial matrix; produces NADH, FADH2, and CO2.
+• Electron Transport Chain: Proton gradient across inner mitochondrial membrane drives ATP synthase.
+• Anaerobic Fermentation: Lactic acid or ethanol regeneration of NAD+ in absence of oxygen.`
+  },
+  {
+    title: 'Thermodynamics & Heat Engines',
+    subject: 'Applied Physics',
+    syllabusText: `• 0th Law: Thermal equilibrium defines temperature.
+• 1st Law: Delta U = Q - W (Conservation of Energy).
+• 2nd Law: Total entropy of an isolated system always increases; Carnot engine sets theoretical maximum efficiency.
+• 3rd Law: As temperature approaches absolute zero (0 Kelvin), entropy of a pure crystalline substance approaches zero.`
+  },
+  {
+    title: 'React Fundamentals & Component Lifecycle',
+    subject: 'Web Development',
+    syllabusText: `• Virtual DOM & Reconciliation: React diffs memory representations before touching the real browser DOM.
+• useState & State Immutability: State must never be mutated directly; setters trigger scheduled re-renders.
+• useEffect Hook: Handles side-effects like data fetching, subscriptions, and DOM updates with dependency arrays.
+• Props vs State: Props are read-only inputs passed from parents, whereas state is local managed data.`
+  }
+];
+

@@ -71,3 +71,16 @@ export interface QuizQuestion {
   correctAnswer: number;
   explanation: string;
 }
+
+export interface SyllabusModule {
+  id: string;
+  title: string;
+  subject: string;
+  syllabusText: string;
+  createdAt: string;
+  questionsCount: number;
+  questions: QuizQuestion[];
+  isCustom?: boolean;
+}
+
+

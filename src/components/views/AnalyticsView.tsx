@@ -40,7 +40,7 @@ export const AnalyticsView: React.FC = () => {
           Learning Analytics & Insights
         </h2>
         <p className="text-xs md:text-sm text-slate-500 mt-1">
-          Visual metrics, time distribution, and subject mastery tracking for Hana.
+          Visual metrics, time distribution, and subject mastery tracking for Smartie.
         </p>
       </div>
 

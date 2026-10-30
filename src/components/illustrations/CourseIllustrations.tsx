@@ -1,7 +1,7 @@
 import React from 'react';
 
-// Geometric Avatar matching Hana's profile avatar from reference image
-export const HanaAvatar: React.FC<{ size?: 'sm' | 'md' | 'lg' | 'xl' }> = ({ size = 'md' }) => {
+// Geometric Avatar matching Smartie's profile avatar
+export const SmartieAvatar: React.FC<{ size?: 'sm' | 'md' | 'lg' | 'xl' }> = ({ size = 'md' }) => {
   const dimensions = {
     sm: 'w-8 h-8',
     md: 'w-10 h-10',
@@ -29,6 +29,32 @@ export const HanaAvatar: React.FC<{ size?: 'sm' | 'md' | 'lg' | 'xl' }> = ({ siz
           <path d="M55,30 L70,30 L65,75 L50,75 Z" fill="#ffffff" fillOpacity="0.9" />
         </svg>
       </div>
+    </div>
+  );
+};
+
+// Smartie logo SVG icon
+export const SmartieLogo: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => {
+  return (
+    <div className={`relative flex items-center justify-center ${className}`}>
+      <svg viewBox="0 0 36 36" className="w-full h-full" fill="none">
+        {/* Modern styled monogram for Smartie */}
+        <rect width="36" height="36" rx="9" fill="url(#smartieGrad)" />
+        <path
+          d="M23 12C21.5 10.5 19 10 16.5 10.5C13.5 11.2 11.5 13.5 11.5 16.2C11.5 19.5 14.5 20.8 17.5 21.6C21 22.5 24 23.5 24 26.5C24 29.5 21.5 31 18 31C14.5 31 12.2 29.5 11 28"
+          stroke="#ffffff"
+          strokeWidth="3.2"
+          strokeLinecap="round"
+        />
+        <circle cx="24" cy="11" r="2.5" fill="#fde047" />
+        <defs>
+          <linearGradient id="smartieGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#2563eb" />
+            <stop offset="0.5" stopColor="#3b82f6" />
+            <stop offset="1" stopColor="#6366f1" />
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
   );
 };
@@ -298,29 +324,4 @@ export const PhysicsTutorAvatar: React.FC<{ className?: string }> = ({ className
   );
 };
 
-// Mindjoy logo SVG icon
-export const MindjoyLogo: React.FC<{ className?: string }> = ({ className = "w-8 h-8" }) => {
-  return (
-    <div className={`relative flex items-center justify-center ${className}`}>
-      <svg viewBox="0 0 36 36" className="w-full h-full" fill="none">
-        {/* Smooth gradient rounded M shape */}
-        <path
-          d="M6 26V14C6 9.58 9.58 6 14 6C16.3 6 18.37 6.97 19.83 8.52C21.29 6.97 23.36 6 25.66 6C30.08 6 33.66 9.58 33.66 14V26"
-          stroke="url(#mindjoyGrad)"
-          strokeWidth="4.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="14" cy="18" r="2.5" fill="#3b82f6" />
-        <circle cx="26" cy="18" r="2.5" fill="#6366f1" />
-        <defs>
-          <linearGradient id="mindjoyGrad" x1="6" y1="6" x2="33" y2="26" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#2563eb" />
-            <stop offset="0.5" stopColor="#3b82f6" />
-            <stop offset="1" stopColor="#6366f1" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-  );
-};
+

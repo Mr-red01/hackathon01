@@ -6,7 +6,7 @@ import type {
   LearningValue,
   StudyDay
 } from '../../types';
-import { HanaAvatar } from '../illustrations/CourseIllustrations';
+import { SmartieAvatar } from '../illustrations/CourseIllustrations';
 
 interface RightSidebarProps {
   profile: StudentProfile;
@@ -58,7 +58,7 @@ export const RightSidebar: React.FC<RightSidebarProps> = ({
     <aside className="w-full xl:w-80 bg-white border-l border-slate-200/70 p-6 flex flex-col gap-6 overflow-y-auto">
       {/* Top Student Profile Card */}
       <div className="flex items-center gap-4">
-        <HanaAvatar size="lg" />
+        <SmartieAvatar size="lg" />
         <div>
           <h2 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-1.5">
             {profile.name}
