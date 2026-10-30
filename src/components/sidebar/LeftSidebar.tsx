@@ -46,7 +46,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
     },
     {
       id: 'calendar' as DashboardTab,
-      label: 'Calendar (To-Do List)',
+      label: 'Calendar',
       icon: CalendarCheck,
     },
     {

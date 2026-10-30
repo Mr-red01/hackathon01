@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, Sparkles } from 'lucide-react';
-import type { DashboardTab, LearningCourse, Tutor, StudentProfile, TaskItem } from './types';
+import type { DashboardTab, Tutor, StudentProfile, TaskItem, FlashcardDeck } from './types';
 import {
   initialProfile,
   learningPreferences,
   learningValues,
-  continueLearningCourses,
+  initialFlashcardDecks,
   tutorsList,
   generateHeatmapData,
   initialTasks
@@ -17,8 +17,8 @@ import { AnalyticsView } from './components/views/AnalyticsView';
 import { CalendarView } from './components/views/CalendarView';
 import { QuizView } from './components/views/QuizView';
 import { ClassroomView } from './components/views/ClassroomView';
-import { CourseModal } from './components/modals/CourseModal';
 import { TutorModal } from './components/modals/TutorModal';
+import { FlashcardModal } from './components/modals/FlashcardModal';
 import { SmartieAvatar } from './components/illustrations/CourseIllustrations';
 
 export const App: React.FC = () => {
@@ -28,13 +28,14 @@ export const App: React.FC = () => {
 
   // Core state
   const [profile, setProfile] = useState<StudentProfile>(initialProfile);
-  const [courses, setCourses] = useState<LearningCourse[]>(continueLearningCourses);
+  const [flashcardDecks, setFlashcardDecks] = useState<FlashcardDeck[]>(initialFlashcardDecks);
   const [tutors] = useState<Tutor[]>(tutorsList);
   const [tasks, setTasks] = useState<TaskItem[]>(initialTasks);
   const [heatmapWeeks] = useState(generateHeatmapData);
 
   // Modals state
-  const [activeCourseModal, setActiveCourseModal] = useState<LearningCourse | null>(null);
+  const [activeFlashcardDeck, setActiveFlashcardDeck] = useState<FlashcardDeck | null>(null);
+  const [openSyllabusFormDirectly, setOpenSyllabusFormDirectly] = useState(false);
   const [activeTutorModal, setActiveTutorModal] = useState<Tutor | null>(null);
   const [prefilledAIPrompt, setPrefilledAIPrompt] = useState<string>('');
 
@@ -46,12 +47,6 @@ export const App: React.FC = () => {
   const handleSelectClassroom = (classroom: string) => {
     setSelectedClassroom(classroom);
     setCurrentTab('classroom');
-  };
-
-  const handleCourseProgressUpdate = (courseId: string, newProgress: number) => {
-    setCourses((prev) =>
-      prev.map((c) => (c.id === courseId ? { ...c, progress: newProgress } : c))
-    );
   };
 
   const handleToggleTask = (taskId: string) => {
@@ -80,6 +75,24 @@ export const App: React.FC = () => {
     setPrefilledAIPrompt(prompt);
     setSelectedClassroom(null);
     setCurrentTab('home');
+  };
+
+  const handleOpenDeck = (deck: FlashcardDeck) => {
+    setActiveFlashcardDeck(deck);
+    setOpenSyllabusFormDirectly(false);
+  };
+
+  const handleOpenAddSyllabus = () => {
+    // Open the first deck with addSyllabus form mode enabled
+    setActiveFlashcardDeck(flashcardDecks[0]);
+    setOpenSyllabusFormDirectly(true);
+  };
+
+  const handleUpdateDeck = (updatedDeck: FlashcardDeck) => {
+    setFlashcardDecks((prev) =>
+      prev.map((d) => (d.id === updatedDeck.id ? updatedDeck : d))
+    );
+    setActiveFlashcardDeck(updatedDeck);
   };
 
   return (
@@ -142,9 +155,10 @@ export const App: React.FC = () => {
           ) : currentTab === 'home' ? (
             <HomeView
               userName={profile.name}
-              courses={courses}
+              flashcardDecks={flashcardDecks}
+              onOpenFlashcardDeck={handleOpenDeck}
+              onOpenAddFlashcardSyllabus={handleOpenAddSyllabus}
               tutors={tutors}
-              onSelectCourse={(course) => setActiveCourseModal(course)}
               onSelectTutor={(tutor) => setActiveTutorModal(tutor)}
               onOpenAnalytics={() => handleSelectTab('analytics')}
               onTriggerQuiz={() => handleSelectTab('quiz')}
@@ -181,10 +195,11 @@ export const App: React.FC = () => {
       </div>
 
       {/* Modals */}
-      <CourseModal
-        course={activeCourseModal}
-        onClose={() => setActiveCourseModal(null)}
-        onUpdateProgress={handleCourseProgressUpdate}
+      <FlashcardModal
+        deck={activeFlashcardDeck}
+        onClose={() => setActiveFlashcardDeck(null)}
+        onUpdateDeck={handleUpdateDeck}
+        defaultOpenSyllabusForm={openSyllabusFormDirectly}
       />
 
       <TutorModal

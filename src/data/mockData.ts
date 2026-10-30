@@ -7,7 +7,8 @@ import type {
   TaskItem,
   QuizQuestion,
   SyllabusModule,
-  StudyDay
+  StudyDay,
+  FlashcardDeck
 } from '../types';
 
 export const initialProfile: StudentProfile = {
@@ -371,4 +372,236 @@ export const syllabusPresets = [
 • Props vs State: Props are read-only inputs passed from parents, whereas state is local managed data.`
   }
 ];
+
+export const initialFlashcardDecks: FlashcardDeck[] = [
+  {
+    id: 'deck-che',
+    subject: 'Chemistry',
+    shortName: 'Che',
+    title: 'Organic Chemistry & Bonding',
+    description: 'Reaction mechanisms, hybridizations, Lewis structures, and thermodynamic equilibrium.',
+    theme: 'emerald',
+    iconType: 'beaker',
+    syllabusSource: `• Electronegativity & Dipole Moments: Difference in Pauling electronegativity creates polar covalent bonds.
+• Hybridization: sp3 forms tetrahedral (109.5°), sp2 forms trigonal planar (120°), sp forms linear (180°).
+• SN1 vs SN2 Reactions: SN2 is bimolecular with concerted backside attack (inversion); SN1 proceeds via carbocation intermediate.
+• Le Chatelier's Principle: When a stress is applied to a chemical system at equilibrium, the system shifts to counteract that stress.
+• Hydrogen Bonding: Strong intermolecular dipole attraction occurring between hydrogen and N, O, or F atoms.
+• Gibbs Free Energy (ΔG = ΔH - TΔS): Spontaneous reactions require negative ΔG under constant temperature and pressure.`,
+    lastStudied: 'Today',
+    cards: [
+      {
+        id: 'che-1',
+        subject: 'Chemistry',
+        topic: 'Chemical Bonding',
+        front: 'What is the hybridization and bond angle in a methane (CH₄) molecule?',
+        back: 'sp³ hybridization with a tetrahedral geometry and 109.5° bond angles.',
+        isMastered: true
+      },
+      {
+        id: 'che-2',
+        subject: 'Chemistry',
+        topic: 'Organic Mechanisms',
+        front: 'Differentiate between SN1 and SN2 reaction kinetics & stereochemistry.',
+        back: 'SN2: One-step concerted backside attack resulting in stereochemical inversion (2nd order kinetics: rate = k[substrate][nucleophile]).\nSN1: Two-step with rate-determining carbocation intermediate resulting in racemization (1st order kinetics: rate = k[substrate]).',
+        isMastered: true
+      },
+      {
+        id: 'che-3',
+        subject: 'Chemistry',
+        topic: 'Chemical Equilibrium',
+        front: 'What does Le Chatelier’s Principle predict when pressure is increased on a gaseous system?',
+        back: 'The equilibrium shifts toward the side of the reaction with fewer moles of gas to relieve the pressure.',
+        isMastered: false
+      },
+      {
+        id: 'che-4',
+        subject: 'Chemistry',
+        topic: 'Thermodynamics',
+        front: 'What condition guarantees a chemical reaction is thermodynamically spontaneous?',
+        back: 'A negative change in Gibbs Free Energy (ΔG < 0), governed by ΔG = ΔH - TΔS.',
+        isMastered: true
+      },
+      {
+        id: 'che-5',
+        subject: 'Chemistry',
+        topic: 'Intermolecular Forces',
+        front: 'What atoms must Hydrogen be covalently bonded with to form true Hydrogen Bonds?',
+        back: 'Highly electronegative atoms with lone pairs: Nitrogen (N), Oxygen (O), or Fluorine (F).',
+        isMastered: false
+      },
+      {
+        id: 'che-6',
+        subject: 'Chemistry',
+        topic: 'Acid-Base Equilibria',
+        front: 'How is pH related to [H⁺] concentration, and what is Ka?',
+        back: 'pH = -log₁₀[H⁺]. Ka is the acid dissociation constant; lower pKa values denote stronger acids.',
+        isMastered: false
+      }
+    ]
+  },
+  {
+    id: 'deck-maths',
+    subject: 'Mathematics',
+    shortName: 'Maths',
+    title: 'Calculus & Linear Algebra',
+    description: 'Eigenvalues, differential equations, Fundamental Theorem of Calculus, and Taylor expansions.',
+    theme: 'cyan',
+    iconType: 'math',
+    syllabusSource: `• Fundamental Theorem of Calculus: d/dx ∫[a to x] f(t) dt = f(x), and ∫[a to b] f'(x) dx = f(b) - f(a).
+• Chain Rule & Product Rule: d/dx [f(g(x))] = f'(g(x)) * g'(x); (uv)' = u'v + uv'.
+• Eigenvalues & Eigenvectors: A * v = λ * v, where det(A - λI) = 0 defines characteristic polynomial.
+• Taylor Series: f(x) = ∑ [f^(n)(a) / n!] * (x - a)^n.
+• Partial Derivatives & Gradient Vector: ∇f points in the direction of steepest ascent of f.
+• Integration by Parts: ∫ u dv = uv - ∫ v du.`,
+    lastStudied: 'Yesterday',
+    cards: [
+      {
+        id: 'math-1',
+        subject: 'Mathematics',
+        topic: 'Calculus',
+        front: 'State the Fundamental Theorem of Calculus (Part 1 and Part 2).',
+        back: 'Part 1: If F(x) = ∫[a to x] f(t) dt, then F\'(x) = f(x).\nPart 2: If f is continuous on [a, b] and F\' = f, then ∫[a to b] f(x) dx = F(b) - F(a).',
+        isMastered: true
+      },
+      {
+        id: 'math-2',
+        subject: 'Mathematics',
+        topic: 'Linear Algebra',
+        front: 'How do you find the eigenvalues (λ) of an n×n square matrix A?',
+        back: 'Solve the characteristic equation: det(A - λI) = 0, where I is the n×n identity matrix.',
+        isMastered: false
+      },
+      {
+        id: 'math-3',
+        subject: 'Mathematics',
+        topic: 'Calculus',
+        front: 'What is the formula for Integration by Parts?',
+        back: '∫ u dv = u·v - ∫ v du (derived from the product rule of differentiation).',
+        isMastered: true
+      },
+      {
+        id: 'math-4',
+        subject: 'Mathematics',
+        topic: 'Multivariable Calculus',
+        front: 'What geometrical property does the gradient vector ∇f(x, y) represent?',
+        back: 'It points in the direction of greatest rate of increase (steepest ascent) of the function, and its magnitude is the directional derivative in that direction.',
+        isMastered: true
+      },
+      {
+        id: 'math-5',
+        subject: 'Mathematics',
+        topic: 'Series & Sequences',
+        front: 'What is the Taylor Series expansion of f(x) centered around x = a?',
+        back: 'f(x) = ∑ [f^(n)(a) / n!] · (x - a)ⁿ from n = 0 to infinity.',
+        isMastered: false
+      },
+      {
+        id: 'math-6',
+        subject: 'Mathematics',
+        topic: 'Linear Algebra',
+        front: 'What does it mean for a set of vectors to be linearly independent?',
+        back: 'No vector in the set can be expressed as a linear combination of the others; c₁v₁ + c₂v₂ + ... + cₖvₖ = 0 only when all scalars cᵢ = 0.',
+        isMastered: true
+      }
+    ]
+  },
+  {
+    id: 'deck-phy',
+    subject: 'Physics',
+    shortName: 'Phy',
+    title: 'Mechanics & Electromagnetism',
+    description: 'Faraday’s Law, Lorentz Force, Newton dynamics, and conservation of angular momentum.',
+    theme: 'purple',
+    iconType: 'atom',
+    syllabusSource: `• Faraday's Law of Induction: EMF ε = -dΦ/dt (changing magnetic flux induces electromotive force).
+• Lorentz Force Equation: F = q(E + v × B).
+• Newton's 2nd Law & Momentum: F_net = dp/dt = m*a (for constant mass).
+• Work-Energy Theorem: Total work done on an object equals change in its kinetic energy (W_net = ΔK).
+• Conservation of Angular Momentum: If net external torque is zero, L = I*ω is conserved.
+• Lenz's Law: The direction of induced current opposes the change in magnetic flux that produced it.`,
+    lastStudied: '2 hours ago',
+    cards: [
+      {
+        id: 'phy-1',
+        subject: 'Physics',
+        topic: 'Electromagnetism',
+        front: 'State Faraday’s Law of Electromagnetic Induction and Lenz’s Law.',
+        back: 'Faraday’s Law: ε = -dΦ_B / dt. The induced EMF in a loop is proportional to the time rate of change of magnetic flux through it. The negative sign (Lenz’s Law) indicates the induced current opposes the flux change.',
+        isMastered: true
+      },
+      {
+        id: 'phy-2',
+        subject: 'Physics',
+        topic: 'Electromagnetism',
+        front: 'What is the Lorentz Force formula and how do you find force direction?',
+        back: 'F = q(E + v × B). For magnetic force (q * v × B), use the Right-Hand Rule: fingers point along v, curl toward B, thumb points along F (for positive charge).',
+        isMastered: true
+      },
+      {
+        id: 'phy-3',
+        subject: 'Physics',
+        topic: 'Mechanics',
+        front: 'When is Angular Momentum (L) conserved in a rotating physical system?',
+        back: 'When the net external torque acting on the system about the axis of rotation is zero (Στ_ext = 0 ⇒ dL/dt = 0).',
+        isMastered: false
+      },
+      {
+        id: 'phy-4',
+        subject: 'Physics',
+        topic: 'Work & Energy',
+        front: 'State the Work-Energy Theorem and its mathematical formulation.',
+        back: 'The net work done on a particle by all external forces equals the change in its kinetic energy: W_net = ΔK = (1/2)m(v_f² - v_i²).',
+        isMastered: true
+      },
+      {
+        id: 'phy-5',
+        subject: 'Physics',
+        topic: 'Rotational Dynamics',
+        front: 'What is Moment of Inertia (I) and what is the rotational analogue of F = m*a?',
+        back: 'Moment of Inertia I = ∑ mᵢrᵢ² (resistance to rotational acceleration). Rotational analogue: τ_net = I · α (torque = moment of inertia × angular acceleration).',
+        isMastered: false
+      },
+      {
+        id: 'phy-6',
+        subject: 'Physics',
+        topic: 'Waves & Oscillations',
+        front: 'What is the period (T) of a simple harmonic pendulum of length L in gravitational field g?',
+        back: 'T = 2π √(L / g) (for small angle approximations where sin(θ) ≈ θ).',
+        isMastered: true
+      }
+    ]
+  }
+];
+
+export const flashcardSyllabusPresets = [
+  {
+    subject: 'Chemistry',
+    title: 'Thermochemistry & Hess’s Law',
+    syllabusText: `• Hess's Law: Total enthalpy change of a reaction is independent of the pathway between initial and final states.
+• Endothermic vs Exothermic: Endothermic absorbs heat (ΔH > 0, system cools surroundings); Exothermic releases heat (ΔH < 0, system warms surroundings).
+• Specific Heat Capacity (q = mcΔT): Energy required to raise temperature of 1g of substance by 1°C.
+• Standard Enthalpy of Formation (ΔHf°): Enthalpy change when 1 mole of compound forms from elements in standard states (elements have ΔHf° = 0).
+• Calorimetry: Heat lost by hot sample equals heat gained by calorimeter water (-q_sample = q_water).`
+  },
+  {
+    subject: 'Mathematics',
+    title: 'Differential Equations & Matrices',
+    syllabusText: `• Separable Differential Equations: dy/dx = g(x)h(y) can be integrated by rewriting as (1/h(y)) dy = g(x) dx.
+• Integrating Factor Method: For y' + P(x)y = Q(x), multiplying by I(x) = e^(∫ P(x) dx) enables direct integration.
+• Determinant Properties: det(AB) = det(A)det(B); det(A^(-1)) = 1/det(A); a matrix is invertible if and only if det(A) ≠ 0.
+• Rank-Nullity Theorem: For an m×n matrix, Rank(A) + Nullity(A) = n (number of columns).
+• Orthogonal Matrices: Q^T * Q = I, preserving vector lengths and dot products.`
+  },
+  {
+    subject: 'Physics',
+    title: 'Quantum Physics & Wave-Particle Duality',
+    syllabusText: `• Photoelectric Effect: E = hf - Φ (Einstein showed light consists of photons; electrons only eject if photon energy exceeds work function Φ).
+• de Broglie Wavelength: λ = h / p (all matter exhibits wave properties inversely proportional to momentum p = mv).
+• Heisenberg Uncertainty Principle: Δx * Δp ≥ h / (4π) (position and momentum cannot both be measured with infinite precision simultaneously).
+• Bohr Model of Hydrogen: Angular momentum is quantized: L = n * (h / 2π), explaining discrete spectral lines.
+• Wavefunction & Born Rule: |Ψ(x,t)|² dx represents the probability density of locating the particle at position x.`
+  }
+];
+
 

@@ -72,6 +72,28 @@ export interface QuizQuestion {
   explanation: string;
 }
 
+export interface Flashcard {
+  id: string;
+  front: string;
+  back: string;
+  subject: string;
+  topic?: string;
+  isMastered?: boolean;
+}
+
+export interface FlashcardDeck {
+  id: string;
+  subject: string;
+  shortName: string;
+  title: string;
+  description: string;
+  theme: 'pink' | 'cyan' | 'purple' | 'emerald' | 'amber' | 'blue';
+  iconType: 'beaker' | 'math' | 'atom' | 'magnet' | 'ruler' | 'dna';
+  cards: Flashcard[];
+  syllabusSource?: string;
+  lastStudied?: string;
+}
+
 export interface SyllabusModule {
   id: string;
   title: string;

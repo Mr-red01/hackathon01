@@ -1,15 +1,16 @@
 import React from 'react';
 import { AIAssistantCard } from '../home/AIAssistantCard';
-import { ContinueLearningSection } from '../home/ContinueLearningSection';
+import { FlashcardsSection } from '../home/FlashcardsSection';
 import { TutorsSection } from '../home/TutorsSection';
 import { LearningProgressSection } from '../home/LearningProgressSection';
-import type { LearningCourse, Tutor } from '../../types';
+import type { Tutor, FlashcardDeck } from '../../types';
 
 interface HomeViewProps {
   userName: string;
-  courses: LearningCourse[];
+  flashcardDecks: FlashcardDeck[];
+  onOpenFlashcardDeck: (deck: FlashcardDeck) => void;
+  onOpenAddFlashcardSyllabus: () => void;
   tutors: Tutor[];
-  onSelectCourse: (course: LearningCourse) => void;
   onSelectTutor: (tutor: Tutor) => void;
   onOpenAnalytics: () => void;
   onTriggerQuiz: () => void;
@@ -18,9 +19,10 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({
   userName,
-  courses,
+  flashcardDecks,
+  onOpenFlashcardDeck,
+  onOpenAddFlashcardSyllabus,
   tutors,
-  onSelectCourse,
   onSelectTutor,
   onOpenAnalytics,
   onTriggerQuiz,
@@ -41,10 +43,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
         defaultTopic={onPromptFromClassroom}
       />
 
-      {/* Continue Learning Section */}
-      <ContinueLearningSection
-        courses={courses}
-        onSelectCourse={onSelectCourse}
+      {/* Flashcards Section: Che, Maths & Phy (Replaced the 3 div box) */}
+      <FlashcardsSection
+        decks={flashcardDecks}
+        onOpenDeck={onOpenFlashcardDeck}
+        onOpenAddSyllabus={onOpenAddFlashcardSyllabus}
       />
 
       {/* Tutors Section */}
